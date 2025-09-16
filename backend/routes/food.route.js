@@ -16,7 +16,7 @@ const upload = multer({ storage: storage})
 
 //@desc Add Food
 //@route POST /api/food/add
-//@access Public
+//@access Private
 foodRouter.post("/add", upload.single("image"), addFood) 
 
 //@desc List Foods
@@ -26,8 +26,7 @@ foodRouter.get("/list", listFood)
 
 //@desc Remove Food
 //@route DELETE /api/food/remove/:id
-//@access Public
+//@access Private
 foodRouter.delete("/remove/:id", removeFood)
-
 
 export default foodRouter

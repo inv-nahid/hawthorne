@@ -102,7 +102,7 @@ const loginUser = async (req, res) => {
 
 //@desc: Logout user
 //@route: POST /api/user/logout
-//@access: Public
+//@access: Private
 const logoutUser = async (req, res) => {
     try {
         res.cookie("jwt", "", { maxAge: 0 })

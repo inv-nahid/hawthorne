@@ -4,7 +4,7 @@ import fs from "fs"
 
 //@desc Add Food Item
 //@route POST /api/food/add
-//@access Public
+//@access Private
 const addFood = async(req, res) => {
     let image_filename = `${req.file.filename}`
 
@@ -43,7 +43,7 @@ const listFood = async(req, res) => {
 
 //@desc Remove Food Item
 //@route DELETE /api/food/remove/:id
-//@access Public
+//@access Private
 const removeFood = async(req, res) =>{
     try {
         const {id} = req.params
