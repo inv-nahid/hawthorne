@@ -41,11 +41,15 @@ const signupUser = async (req, res) => {
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt)
 
+        //Check if this is the first user
+        const userCount = await userModel.countDocuments()
+
         // Create new user
         const newUser = new userModel({ 
             name, 
             email, 
-            password: hashedPassword
+            password: hashedPassword,
+            isAdmin: userCount === 0 //First user is admin
         })
         
         // Save user to database
@@ -55,7 +59,8 @@ const signupUser = async (req, res) => {
         res.status(201).json({ success: true, token, message: "User registered successfully!", user: {
             id: user._id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            isAdmin: user.isAdmin
         }})
 
     } catch (error) {
@@ -91,7 +96,8 @@ const loginUser = async (req, res) => {
         res.status(200).json({ success: true, token, message: "User logged in successfully!", user: {
             id: user._id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            isAdmin: user.isAdmin
         }})
 
     } catch (error) {
