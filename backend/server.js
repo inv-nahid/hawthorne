@@ -26,7 +26,7 @@ app.use("/api/user", userRouter)
 app.use("/api/cart", cartRouter)
 
 app.get("/", (req, res) => {
-    res.send("Hello World")
+    res.send("API Running")
 })
 
 app.get("/health", (req, res) => res.send("Server is running"))
