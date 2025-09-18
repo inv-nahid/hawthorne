@@ -12,7 +12,7 @@ cartRouter.post("/add", authMiddleware, addToCart)
 //@desc Remove From Cart
 //@route POST /api/cart/remove
 //@access Private
-cartRouter.post("/remove", authMiddleware, removeFromCart)
+cartRouter.post("/remove/:foodId", authMiddleware, removeFromCart)
 
 //@desc Get Cart
 //@route GET /api/cart/get
