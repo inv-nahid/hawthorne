@@ -1,7 +1,6 @@
 import foodModel from "../models/food.model.js"
 import fs from "fs"
 
-
 //@desc Add Food Item
 //@route POST /api/food/add
 //@access Private
@@ -26,7 +25,6 @@ const addFood = async(req, res) => {
     }
 }
 
-
 //@desc List All Foods
 //@route GET /api/food/list
 //@access Public
@@ -39,7 +37,6 @@ const listFood = async(req, res) => {
         res.status(500).json({success:false, message:"Error listing foods"})
     }
 }
-
 
 //@desc Remove Food Item
 //@route DELETE /api/food/remove/:id
@@ -63,7 +60,5 @@ const removeFood = async(req, res) =>{
         res.status(500).json({success:false, message:"Error removing food item"})
     }
 }
-
-
 
 export { addFood, listFood, removeFood }
