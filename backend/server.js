@@ -7,6 +7,12 @@ import foodRouter from "./routes/food.route.js"
 import userRouter from "./routes/user.route.js"
 import cartRouter from "./routes/cart.route.js"
 import orderRouter from "./routes/order.route.js"
+import path from "path"
+import { fileURLToPath } from "url"
+import Razorpay from "razorpay"
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Load environment variables from .env
 dotenv.config()
@@ -27,7 +33,22 @@ app.use("/api/user", userRouter)
 app.use("/api/cart", cartRouter)
 app.use("/api/order", orderRouter)
 
-app.get("/", (req, res) => res.send("API Running"))
+//RAZORPAY API KEYS
+export const razorpay = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET
+})
+
+app.get('/place', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Route to serve the success page(TESTING IN HTML)
+app.get('/payment-success', (req, res) => {
+  res.sendFile(path.join(__dirname, 'success.html'));
+})
+
+//app.get("/", (req, res) => res.send("API Running"))
 app.get("/health", (req, res) => res.send("Server is running"))
 
 //Connect to MongoDB and start server

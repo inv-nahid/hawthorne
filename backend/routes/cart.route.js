@@ -10,7 +10,7 @@ const cartRouter = express.Router()
 cartRouter.post("/add", authMiddleware, addToCart)
 
 //@desc Remove From Cart
-//@route POST /api/cart/remove
+//@route POST /api/cart/remove/:foodId
 //@access Private
 cartRouter.post("/remove/:foodId", authMiddleware, removeFromCart)
 

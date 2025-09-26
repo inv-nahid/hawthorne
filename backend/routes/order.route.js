@@ -16,18 +16,18 @@ orderRouter.post("/place", authMiddleware, placeOrder)
 orderRouter.get("/me", authMiddleware, getMyOrders)
 
 // @desc Cancel my orders
-// @route GET /api/order/:id/cancel
+// @route DELETE /api/order/:id
 // @access Private
-orderRouter.put("/:id/cancel", authMiddleware, cancelOrder)
+orderRouter.delete("/:id", authMiddleware, cancelOrder)
 
 // @desc Get all orders (Admin)
 // @route GET /api/order/orders
 // @access Private/Admin
-orderRouter.get("/", authMiddleware, adminMiddleware, getAllOrders)
+orderRouter.get("/orders", authMiddleware, adminMiddleware, getAllOrders)
 
 // @desc Update order status (Admin)
-// @route PUT /api/order/:id/status
+// @route PUT /api/order/:id
 // @access Private/Admin
-orderRouter.put("/:id/status", authMiddleware, adminMiddleware, updateOrderStatus)
+orderRouter.put("/:id", authMiddleware, adminMiddleware, updateOrderStatus)
 
 export default orderRouter

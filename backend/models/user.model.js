@@ -13,8 +13,7 @@ const userSchema = new mongoose.Schema(
     cartData: [cartItemSchema],
     isAdmin: { type: Boolean, default: false }
   },
-  { minimize: false },
-  { timestamps: true }
+  { minimize: false, timestamps: true }
 )
 
 const userModel = mongoose.models.user || mongoose.model("user", userSchema);
