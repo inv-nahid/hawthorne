@@ -16,8 +16,9 @@ const App = () => {
 
 
   return (
-    <div>
+    <div className="bg-black test-white min-h-screen">
       <Navbar/>
+      
 
       <Routes>
         <Route path="/" element={<Landing/>}/>
