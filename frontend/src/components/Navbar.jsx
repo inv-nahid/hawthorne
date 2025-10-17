@@ -7,7 +7,7 @@ const Navbar = () => {
   const handleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <nav className="fixed top-0 left-0 w-full py-4 px-10 bg-black text-white flex justify-between items-center z-50">
+    <nav className="absolute top-0 left-0 w-full py-4 px-10 bg-transparent text-white flex justify-between items-center z-50">
       {/* Brand */}
       <Link to="/" className="flex gap-2 items-center">
         <img
@@ -60,27 +60,23 @@ const Navbar = () => {
         onClick={handleMenu}
       >
         <div
-          className={`w-6 h-0.5 bg-white transform transition-all duration-500 ${
-            menuOpen ? "rotate-45 translate-y-2.5" : ""
-          }`}
+          className={`w-6 h-0.5 bg-white transform transition-all duration-500 ${menuOpen ? "rotate-45 translate-y-2.5" : ""
+            }`}
         />
         <div
-          className={`w-6 h-0.5 bg-white transition-all duration-500 ${
-            menuOpen ? "opacity-0" : ""
-          }`}
+          className={`w-6 h-0.5 bg-white transition-all duration-500 ${menuOpen ? "opacity-0" : ""
+            }`}
         />
         <div
-          className={`w-6 h-0.5 bg-white transform transition-all duration-500 ${
-            menuOpen ? "-rotate-45 -translate-y-2.5" : ""
-          }`}
+          className={`w-6 h-0.5 bg-white transform transition-all duration-500 ${menuOpen ? "-rotate-45 -translate-y-2.5" : ""
+            }`}
         />
       </button>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center gap-8 md:hidden z-40 transform transition-transform duration-700 ${
-          menuOpen ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center gap-8 md:hidden z-40 transform transition-transform duration-700 ${menuOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
       >
         <Link
           to="/menu"

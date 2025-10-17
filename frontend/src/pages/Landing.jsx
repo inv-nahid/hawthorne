@@ -1,8 +1,10 @@
-import React from 'react'
+import LandingVideo from '../components/LandingVideo'
 
 const Landing = () => {
   return (
-    <div></div>
+    <div>
+      <LandingVideo />
+    </div>
   )
 }
 

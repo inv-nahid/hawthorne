@@ -17,20 +17,20 @@ const App = () => {
 
   return (
     <div className="bg-black test-white min-h-screen">
-      <Navbar/>
-      
+      <Navbar />
+
 
       <Routes>
-        <Route path="/" element={<Landing/>}/>
-        <Route path="/signup" element={<Signup/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/menu" element={<Menu/>}/>
-        <Route path="/booking" element={<Booking/>}/>
-        <Route path="/orders" element={<Orders/>}/>
-        <Route path="/contact" element={<Contact/>}/>
-        <Route path="/about" element={<About/>}/>
-        <Route path="/blogs" element={<Blogs/>}/>
+        <Route path="/" element={<Landing />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blogs" element={<Blogs />} />
 
       </Routes>
     </div>
