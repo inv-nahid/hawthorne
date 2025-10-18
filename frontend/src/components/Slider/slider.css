@@ -1,7 +1,7 @@
 :root {
     --gap: 25px;
     --primary-clr: #fff;
-    --accent-clr: #608f2e;
+    --accent-clr: #222222;
 }
 
 
@@ -16,19 +16,21 @@ img {
 main {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100vh;
-    background: #D1B5A9;
+    background: #222222;
     overflow: hidden;
 }
 
 .container {
-    width: 80%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .swiper {
-    width: 100%;
-    padding: 60px;
+    width: 100vw;
+    padding: 0;
 }
 
 .swiper-slide {
@@ -62,7 +64,7 @@ main {
 .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
-    background: var(--primary-clr);
+    background: #F5F5DC;
     opacity: 1;
 }
 

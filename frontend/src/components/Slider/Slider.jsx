@@ -54,12 +54,14 @@ const Slider = () => {
                     slidesPerView="auto"
                     speed={800}
                     slideToClickedSlide
+                    spaceBetween={30}
                     pagination={{ clickable: true }}
-                    breakpoints={{
-                        320: { spaceBetween: 40 },
-                        650: { spaceBetween: 30 },
-                        1000: { spaceBetween: 20 }
-                    }}
+                    // breakpoints={{
+                    //     320: { spaceBetween: 40 },
+                    //     650: { spaceBetween: 30 },
+                    //     1000: { spaceBetween: 20 }
+                    // }}
+
                     onSwiper={(swiper) => {
                         swiperWrappedRef.current = swiper.wrapperEl
                     }}>
