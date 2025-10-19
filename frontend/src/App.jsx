@@ -16,7 +16,7 @@ const App = () => {
 
 
   return (
-    <div className="bg-black test-white min-h-screen">
+    <div className="bg-[#F5F5DC] test-white min-h-screen">
       <Navbar />
 
 

@@ -1,80 +1,39 @@
-import { useEffect, useRef } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import { Pagination } from 'swiper/modules'
-import 'swiper/css/pagination'
-import './slider.css'
+import React from "react";
+import "./slider.css";
 
-import slide1 from "../../assets/sliderImages/1.webp"
-import slide2 from "../../assets/sliderImages/2.webp"
-import slide3 from "../../assets/sliderImages/3.webp"
-import slide4 from "../../assets/sliderImages/4.avif"
-import slide5 from "../../assets/sliderImages/5.avif"
-import slide6 from "../../assets/sliderImages/6.avif"
-import slide7 from "../../assets/sliderImages/7.avif"
-import slide8 from "../../assets/sliderImages/8.webp"
-//import slide9 from "../../assets/sliderImages/9.avif"
+import img1 from "../../assets/sliderImages/1.webp";
+import img2 from "../../assets/sliderImages/2.webp";
+import img3 from "../../assets/sliderImages/3.webp";
+import img4 from "../../assets/sliderImages/4.avif";
+import img5 from "../../assets/sliderImages/5.avif";
+import img6 from "../../assets/sliderImages/6.avif";
+import img7 from "../../assets/sliderImages/7.avif";
+import img8 from "../../assets/sliderImages/8.webp";
 
-const slidesData = [
-    { imgSrc: slide1 },
-    { imgSrc: slide2 },
-    { imgSrc: slide3 },
-    { imgSrc: slide4 },
-    { imgSrc: slide5 },
-    { imgSrc: slide6 },
-    { imgSrc: slide7 },
-    { imgSrc: slide8 },
-
-]
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const Slider = () => {
-    const swiperWrappedRef = useRef(null)
-    const adjustMargin = () => {
-        const screenWidth = window.innerWidth
-        if (swiperWrappedRef.current) {
-            swiperWrappedRef.current.style.marginLeft =
-                screenWidth <= 520 ? '0px' : screenWidth <= 650 ? '-50px' : screenWidth <= 800 ? '-100px' : '-150px'
-        }
-    }
-
-    useEffect(() => {
-        adjustMargin()
-        window.addEventListener('resize', adjustMargin)
-        return () => window.removeEventListener('resize', adjustMargin)
-    }, [])
-
     return (
-        <main>
-            <div className="container">
-                <Swiper
-                    modules={[Pagination]}
-                    grabCursor
-                    initialSlide={2}
-                    centeredSlides
-                    slidesPerView="auto"
-                    speed={800}
-                    slideToClickedSlide
-                    spaceBetween={30}
-                    pagination={{ clickable: true }}
-                    // breakpoints={{
-                    //     320: { spaceBetween: 40 },
-                    //     650: { spaceBetween: 30 },
-                    //     1000: { spaceBetween: 20 }
-                    // }}
-
-                    onSwiper={(swiper) => {
-                        swiperWrappedRef.current = swiper.wrapperEl
-                    }}>
-                    {slidesData.map((slide, index) => (
-                        <SwiperSlide key={index}>
-                            <img src={slide.imgSrc} alt={slide.title} />
-                        </SwiperSlide>
+        <div className="carousel">
+            <div className="track">
+                <div className="group">
+                    {images.map((img, i) => (
+                        <div className="card" key={i}>
+                            <img src={img} alt={`Slide ${i + 1}`} />
+                        </div>
                     ))}
-                </Swiper>
+                </div>
+
+                <div className="group" aria-hidden="true">
+                    {images.map((img, i) => (
+                        <div className="card" key={`dup-${i}`}>
+                            <img src={img} alt={`Slide ${i + 1}`} />
+                        </div>
+                    ))}
+                </div>
             </div>
-        </main>
-    )
-}
+        </div>
+    );
+};
 
-
-export default Slider
+export default Slider;
